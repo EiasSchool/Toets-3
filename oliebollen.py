@@ -53,7 +53,7 @@ def winkel():
     totaal = subtotaal - korting
 
     # btw berekenen
-    prijsZonderBTW = totaal / (1 + (btwPrecentage / 100))
+    prijsZonderBTW = totaal / 1.09
     btw = totaal - prijsZonderBTW
 
     # wachtijd berekenen
