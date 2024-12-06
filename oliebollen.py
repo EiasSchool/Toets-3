@@ -25,7 +25,9 @@ while True:
 oliebollenPrijs = 1.15
 appelflappenPrijs = 1.60
 zakprijs = 10.00
-kortingPrecentage = 7.5    
+
+kortingPrecentage = 7.5
+btwPrecentage = 9
 
 aantalZakken = oliebollen // 10
 loseoliebollen = oliebollen - (aantalZakken * 10)
@@ -33,12 +35,14 @@ loseoliebollen = oliebollen - (aantalZakken * 10)
 totaalOliebollen = (aantalZakken * 10 * 1) + (loseoliebollen * oliebollenPrijs)
 totaalAppelflappen = appelflappen * appelflappenPrijs
 
-totaal = totaalOliebollen + totaalAppelflappen
+subtotaal = totaalOliebollen + totaalAppelflappen
 
 korting = 0
-if totaal > 50:
-    korting = totaal * (kortingPrecentage / 100)
-    totaal -= korting
+if subtotaal > 50:
+    korting = subtotaal * (kortingPrecentage / 100)
+    subtotaal -= korting
+
+totaal = subtotaal - korting
 
 print("---------- [UW BESTELLING] ----------")
 if oliebollen > 0:
@@ -48,7 +52,8 @@ if oliebollen > 0:
 if appelflappen > 0:
     print(f"Appelflap:     {appelflappen:>2} x €{appelflappenPrijs:<5.2f} = €{totaalAppelflappen:>7.2f}")
 print("------------------------------------+")
-print(f"Subtotaal:                   €{totaal:7.2f}")
+print(f"Subtotaal:                   €{subtotaal:7.2f}")
 print(f"Korting (7.5%):             -€{korting:7.2f}")
 print("------------------------------------+")
 print(f"Totaal:                      €{totaal:7.2f}")
+print(f"BTW ({btw}%): ")
