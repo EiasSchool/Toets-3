@@ -44,7 +44,10 @@ if subtotaal > 50:
 
 totaal = subtotaal - korting
 
-print("---------- [UW BESTELLING] ----------")
+prijsZonderBTW = totaal / (1 + (btwPrecentage / 100))
+btw = totaal - prijsZonderBTW
+
+print("\n---------- [UW BESTELLING] ----------")
 if oliebollen > 0:
     print(f"Oliebol (zak): {aantalZakken:>2} x €{zakprijs:<5.2f} = €{aantalZakken * 10 * 1:>7.2f}")
     if loseoliebollen > 0:
@@ -56,4 +59,4 @@ print(f"Subtotaal:                   €{subtotaal:7.2f}")
 print(f"Korting (7.5%):             -€{korting:7.2f}")
 print("------------------------------------+")
 print(f"Totaal:                      €{totaal:7.2f}")
-print(f"BTW ({btwPrecentage}%): ")
+print(f"BTW ({btwPrecentage}%):                    €{btw:7.2f}")
