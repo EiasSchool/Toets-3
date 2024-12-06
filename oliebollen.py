@@ -48,15 +48,16 @@ prijsZonderBTW = totaal / (1 + (btwPrecentage / 100))
 btw = totaal - prijsZonderBTW
 
 print("\n---------- [UW BESTELLING] ----------")
-if oliebollen > 0:
+if aantalZakken > 0:
     print(f"Oliebol (zak): {aantalZakken:>2} x €{zakprijs:<5.2f} = €{aantalZakken * 10 * 1:>7.2f}")
-    if loseoliebollen > 0:
-        print(f"Oliebol (los): {loseoliebollen:>2} x €{oliebollenPrijs:<5.2f} = €{loseoliebollen * oliebollenPrijs:>7.2f}")
+if loseoliebollen > 0:
+    print(f"Oliebol (los): {loseoliebollen:>2} x €{oliebollenPrijs:<5.2f} = €{loseoliebollen * oliebollenPrijs:>7.2f}")
 if appelflappen > 0:
     print(f"Appelflap:     {appelflappen:>2} x €{appelflappenPrijs:<5.2f} = €{totaalAppelflappen:>7.2f}")
-print("------------------------------------+")
-print(f"Subtotaal:                   €{subtotaal:7.2f}")
-print(f"Korting (7.5%):             -€{korting:7.2f}")
+if korting > 0:
+    print("------------------------------------+")
+    print(f"Subtotaal:                   €{subtotaal:7.2f}")
+    print(f"Korting (7.5%):             -€{korting:7.2f}")
 print("------------------------------------+")
 print(f"Totaal:                      €{totaal:7.2f}")
 print(f"BTW ({btwPrecentage}%):                    €{btw:7.2f}")
